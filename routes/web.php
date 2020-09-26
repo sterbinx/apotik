@@ -13,4 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', 'DashboardController@index');
+=======
+Route::get('/', function () {
+    return view('dashboard');
+});
+Route::get('home', function (){
+   return view('blank');
+});
+
+//Obat
+Route::get('master/obat', 'Master\ObatController@index');
+
+//Apoteker
+Route::get('master/user', 'Master\UserController@index');
+
+//Kategori
+Route::get('master/kategori', 'Master\KategoriController@index');
+
+//Transaksi
+Route::get('transaksi', 'TransaksiController@index');
+>>>>>>> ad4d4b605de8d88bac04e1c980ec5bc81a41198d
