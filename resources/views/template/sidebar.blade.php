@@ -9,39 +9,39 @@
                     <h4 class="text-section">Menu</h4>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('data/warga') }}">
-                        <i class="fas fa-users"></i>
-                        <p>Warga</p>
+                    <a href="{{ url('transaksi') }}">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <p>Transaksi</p>
                     </a>
                 </li>
-                @if (Auth::user()->roleid == 1)
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#submenu">
-                        <i class="fas fa-database"></i>
+                    <a data-toggle="collapse" href="#maps">
+                        <i class="fas fa-building"></i>
                         <p>Master</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="submenu">
+                    <div class="collapse" id="maps">
                         <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ url('master/obat') }}">
+                                    <span class="sub-item">Obat</span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ url('master/user') }}">
                                     <span class="sub-item">User</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('master/type') }}">
-                                    <span class="sub-item">Type</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('master/category') }}">
-                                    <span class="sub-item">Category</span>
+                                <a href="{{ url('master/kategori') }}">
+                                    <span class="sub-item">Kategori</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                @endif
+                {{--@if (Auth::user()->roleid == 1)--}}
+                {{--@endif--}}
             </ul>
         </div>
     </div>

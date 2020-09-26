@@ -10,7 +10,8 @@
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
 				<a href="{{ url('/') }}" class="logo">
-					<img src="{{ asset('/img/Logo.png') }}" alt="navbar brand" class="navbar-brand">
+					{{--<img src="{{ asset('/img/Logo.png') }}" alt="navbar brand" class="navbar-brand">--}}
+					<h1 class="navbar-brand" style="color: #fff">Logo</h1>
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
@@ -42,24 +43,22 @@
 		                                <div class="user-box">
 		                                    <div class="avatar-lg"><img src="{{('/img/default-profile.jpg')}}" alt="image profile" class="avatar-img rounded"></div>
 		                                    <div class="u-text">
-		                                        <h4>{{ Auth::user()->name }}</h4>
-		                                        <p class="text-muted" style="margin-bottom: -3px;">{{ Auth::user()->email }}</p>
-		                                        <p class="text-muted">{{ UserHelp::getUserRole() }}</p>
+
 		                                    </div>
 		                                </div>
 		                            </li>
 		                            <li>
-		                                <div class="dropdown-divider"></div>
+		                                {{--<div class="dropdown-divider"></div>--}}
 										{{-- <a class="dropdown-item" href="{{ route('/logout') }}">Logout</a> --}}
-										<a class="dropdown-item" href="{{ route('logout') }}"
-										onclick="event.preventDefault();
-														document.getElementById('logout-form').submit();">
-											{{ __('Logout') }}
-										</a>
+										{{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+										{{--onclick="event.preventDefault();--}}
+														{{--document.getElementById('logout-form').submit();">--}}
+											{{--{{ __('Logout') }}--}}
+										{{--</a>--}}
 
-										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-											@csrf
-										</form>
+										{{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+											{{--@csrf--}}
+										{{--</form>--}}
 		                            </li>
 		                        </div>
 		                    </ul>
@@ -81,7 +80,7 @@
 					<?php 	
 						if (!empty($content)) {
 							@include($content);
-						} 
+						}
 					?>
 				</div>
 			</div>
