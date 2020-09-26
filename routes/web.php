@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard');
 });
+Route::get('home', function (){
+   return view('blank');
+});
+
+//Obat
+Route::get('master/obat', 'Master\ObatController@index');
+
+//Apoteker
+Route::get('master/user', 'Master\UserController@index');
+
+//Kategori
+Route::get('master/kategori', 'Master\KategoriController@index');
+
+//Transaksi
+Route::get('transaksi', 'TransaksiController@index');
