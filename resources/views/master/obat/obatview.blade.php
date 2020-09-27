@@ -16,22 +16,43 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Supplayer</th>
+                            <th>Kategori</th>
                             <th>Satuan</th>
                             <th>Tanggal EXP</th>
                             <th>Stok</th>
+                            <th>Harga</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @php
+                        $num = 1;
+                        @endphp
+
+                        @foreach($obat as $key => $value)
+                        <tr>
+                            <td>{{ $num++ }}</td>
+                            <td>{{ $value->nama_obat }}</td>
+                            <td>{{ $value->supplier }}</td>
+                            <td>{{ $value->nama_kategori }}</td>
+                            <td>{{ $value->satuan }}</td>
+                            <td>{{ $value->tanggal_expired }}</td>
+                            <td>{{ $value->stok }}</td>
+                            <td>{{ $value->harga_jual }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
         <div class="card-footer">
-            
+
         </div>
     </div>
 </div>
 @endsection
 
 @push('scriptfooter')
-    
+
 @endpush
