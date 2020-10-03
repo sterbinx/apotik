@@ -32,4 +32,15 @@ class KategoriController extends Controller
             return redirect('master/kategori');
         }
     }
+
+    public function search(Request $request)
+    {
+        $cari = $request->search;
+
+        $kategori = DB::table('kategori')
+            ->where('nama_kategori','like',"%".$cari."%")->get();
+
+        return view('master.kategori.kategoriview',['show' => $kategori]);
+
+    }
 }
