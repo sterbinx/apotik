@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title">&nbsp;Data Kategori</span>
-                <a class="btn btn-primary btn-add pull-right" type="button" title="Tambah Data" style="color: white;">
+                <a class="btn btn-primary btn-add pull-right" type="button" title="Tambah Data" href="kategori/create" style="color: white;">
                     <i class="fa fa-plus"></i> | Add
                 </a>
             </div>
@@ -23,6 +23,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Kategori</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -34,6 +35,9 @@
                             <tr>
                                 <td>{{ $num++ }}</td>
                                 <td>{{ $data->nama_kategori}}</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="kategori/update/{{$data->id_kategori}}">Edit</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

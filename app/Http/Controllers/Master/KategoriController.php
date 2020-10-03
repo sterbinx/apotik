@@ -43,4 +43,36 @@ class KategoriController extends Controller
         return view('master.kategori.kategoriview',['show' => $kategori]);
 
     }
+
+    public function get_ket(){
+        $id = $request->get('id_kategori');     
+        $get_edit = DB::table('kategori')
+                ->where('id',$id)
+                ->get();
+        return $get_edit;
+    }
+
+    public function update_ket(Request $request)
+    {
+        $update = DB::table('kategori')
+                ->where('id_kategori',$request->input('edit_id'))
+                ->update([
+                    'nama_kategori'      => $request->input('nama')
+                ]);
+
+        if ($update) {
+            return redirect('master/kategori');
+        }
+    }
+
+    public function viewUpdate(Request $request){
+        $id = $request->get('id_kategori');     
+        $get_edit = DB::table('kategori')
+                ->where('id_kategori',$request->id)
+                ->get();
+        $data = [
+            'getedit' => $get_edit
+        ];
+        return view('master.kategori.update', $data);
+    }
 }
