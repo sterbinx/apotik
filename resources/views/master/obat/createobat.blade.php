@@ -12,37 +12,74 @@
             <div class="card-body">
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label>Type</label>
-                        <input type="text" name="typenm" id="typenm" class="form-control @error('typenm') is-invalid @enderror" value="{{ old('typenm') }}" placeholder="Nama Type">
-                        @error('typenm') 
+                        <label>Nama Obat</label>
+                        <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" placeholder="Nama Obat">
+                        @error('nama')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span> 
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Category</label>
-                        <select class="form-control select-category @error('catid') is-invalid @enderror" name="catid" id="catid">
+                        <label>Suplier</label>
+                        <input type="text" name="suplier" id="suplier" class="form-control @error('suplier') is-invalid @enderror" value="{{ old('suplier') }}" placeholder="Suplier">
+                        @error('suplier')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Kategori</label>
+                        <select class="form-control select-category @error('kategori') is-invalid @enderror" name="kategori" id="kategori">
                             <option></option>
                         </select>
-                        @error('catid') 
+                        @error('kategori')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span> 
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Color</label>
-                        <div class="input-group mb-3" id="color-picker-component">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1" style="width: 40px;"></span>
-                            </div>
-                            <input type="text" class="form-control" name="color" id="color" autocomplete="off" placeholder="Color" aria-label="Username" aria-describedby="basic-addon1">
-                        </div>
-                        <!-- <div id="color-picker-component" class="input-group colorpicker-component">
-                            <input type="text" value="#38a677" class="form-control"/>
-                            <span class="input-group-addon"><i></i></span>
-                        </div> -->
+                        <label>Satuan</label>
+                        <select class="form-control select-satuan @error('satuan') is-invalid @enderror" name="satuan" id="satuan">
+                            <option></option>
+                            <option value="Kapsul">Kapsul</option>
+                            <option value="Botol">Botol</option>
+                            <option value="Tablet">Tablet</option>
+                        </select>
+                        @error('satuan')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Tanggal EXP</label>
+                        <input type="date" name="tglexp" id="tglexp" class="form-control @error('tglexp') is-invalid @enderror" value="{{ old('tglexp') }}" placeholder="Suplier">
+                        @error('tglexp')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Stok</label>
+                        <input type="number" name="stok" id="stok" class="form-control @error('stok') is-invalid @enderror" value="{{ old('stok') }}" placeholder="Stok">
+                        @error('stok')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Harga</label>
+                        <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" placeholder="Harga">
+                        @error('harga')
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -55,5 +92,5 @@
 @endsection
 
 @push('scriptfooter')
-    @include('master.type.scriptfooter')
+    @include('master.obat.scriptfooter')
 @endpush

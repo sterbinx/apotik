@@ -20,12 +20,15 @@ Route::get("/",function(){
 });
 //Obat
 Route::get('master/obat', 'Master\ObatController@index');
+Route::get('select/category', 'Master\KategoriController@selectCategory');
 
 //Apoteker
 Route::get('master/user', 'Master\UserController@index');
 
 //Kategori
 Route::get('master/kategori', 'Master\KategoriController@index');
+Route::get('master/kategori/create', 'Master\KategoriController@viewCreate');
+Route::post('master/kategori/create/process', 'Master\KategoriController@store');
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');

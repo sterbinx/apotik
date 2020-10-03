@@ -18,6 +18,18 @@
                             <th>Nama Kategori</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @php
+                            $num = 1;
+                        @endphp
+
+                        @foreach($show as $data)
+                            <tr>
+                                <td>{{ $num++ }}</td>
+                                <td>{{ $data->nama_kategori}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
