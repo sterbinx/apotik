@@ -14,12 +14,19 @@ class ObatController extends Controller
 {
 
 
-    public function index(){
+    public function index()
+    {
         $a = new Apotek();
 
-    	$data = array();
-    	$data['obat'] = $a->getApotek();
+        $data = array();
+        $data['obat'] = $a->getApotek();
 
         return view('master.obat.obatview', $data);
     }
+
+    public function viewCreate()
+    {
+        return view('master.obat.createobat');
+    }
+
 }
