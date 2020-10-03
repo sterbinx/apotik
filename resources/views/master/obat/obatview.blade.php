@@ -5,7 +5,7 @@
     <div class="card">
     	<div class="card-header">
     		<span class="card-title">&nbsp;Data Obat</span>
-    		<a class="btn btn-primary btn-add pull-right" type="button" title="Tambah Data" style="color: white;">
+    		<a class="btn btn-primary btn-add pull-right" onclick="save_obat()" type="button" title="Tambah Data" href="obat/create" style="color: white;">
     			<i class="fa fa-plus"></i> | Add
     		</a>
     	</div>
@@ -52,6 +52,7 @@
     </div>
 </div>
 @endsection
+
 
 @push('scriptfooter')
 

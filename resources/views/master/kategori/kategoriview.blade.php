@@ -10,6 +10,13 @@
                 </a>
             </div>
             <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 offset-9">
+                        <form action="/master/kategori/search" method="GET">
+                            <input class="form-control" type="text" name="search" placeholder="Cari Kategori.." value="{{ old('search') }}">
+                        </form>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -18,6 +25,18 @@
                             <th>Nama Kategori</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @php
+                            $num = 1;
+                        @endphp
+
+                        @foreach($show as $data)
+                            <tr>
+                                <td>{{ $num++ }}</td>
+                                <td>{{ $data->nama_kategori}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
