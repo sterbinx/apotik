@@ -75,4 +75,10 @@ class KategoriController extends Controller
         ];
         return view('master.kategori.update', $data);
     }
+
+     public function destroy($id)
+    {
+        DB::table('kategori')->where('id_kategori',$id)->delete();
+        return view('master.kategori.kategoriview');
+    }
 }
