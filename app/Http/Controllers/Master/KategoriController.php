@@ -8,13 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
-    public function index(){
-        $data = DB::table('kategori')
-            ->get();
-        return view('master.kategori.kategoriview',[
-            'show' => $data
-        ]);
-    }
+    
 
     public function viewCreate(){
         $data = [];
@@ -40,7 +34,13 @@ class KategoriController extends Controller
         $kategori = DB::table('kategori')
             ->where('nama_kategori','like',"%".$cari."%")->get();
 
-        return view('master.kategori.kategoriview',['show' => $kategori]);
+        $data = DB::table('kategori')
+            ->get();
+
+        return view('master.kategori.kategoriview',[
+            'show' => $kategori,
+            'apa'  => $data
+        ]);
 
     }
 
@@ -74,5 +74,11 @@ class KategoriController extends Controller
             'getedit' => $get_edit
         ];
         return view('master.kategori.update', $data);
+    }
+
+    public function delete($id)
+    {
+        DB::table('kategori')->where('id_kategori',$id)->delete();
+        return view('master.kategori.kategoriview');
     }
 }

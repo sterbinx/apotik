@@ -31,12 +31,13 @@
                             $num = 1;
                         @endphp
 
-                        @foreach($show as $data)
+                        @foreach($apa as $data)
                             <tr>
                                 <td>{{ $num++ }}</td>
                                 <td>{{ $data->nama_kategori}}</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="kategori/update/{{$data->id_kategori}}">Edit</a>
+                                    <a class="btn btn-danger btn-sm" href="kategori/delete/{{$data->id_kategori}}">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
