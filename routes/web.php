@@ -36,7 +36,11 @@ Route::post('master/kategori/update/process', 'Master\KategoriController@update_
 Route::post('master/kategori/create/process', 'Master\KategoriController@store');
 Route::get('master/kategori/search', 'Master\KategoriController@search');
 
+<<<<<<< HEAD
 Route::get('master/kategori/delete/{id}','Master\KategoriController@delete');
+=======
+Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
+>>>>>>> bf1b5d1ff64f431ed4273997d6eb70f9950842c7
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');

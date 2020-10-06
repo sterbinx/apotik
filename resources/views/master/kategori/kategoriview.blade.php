@@ -37,6 +37,10 @@
                                 <td>{{ $data->nama_kategori}}</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="kategori/update/{{$data->id_kategori}}">Edit</a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf1b5d1ff64f431ed4273997d6eb70f9950842c7
                                     <a class="btn btn-danger btn-sm" href="kategori/delete/{{$data->id_kategori}}">Delete</a>
                                 </td>
                             </tr>
