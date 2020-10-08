@@ -76,11 +76,7 @@ class KategoriController extends Controller
         return view('master.kategori.update', $data);
     }
 
-<<<<<<< HEAD
-    public function delete($id)
-=======
      public function destroy($id)
->>>>>>> bf1b5d1ff64f431ed4273997d6eb70f9950842c7
     {
         DB::table('kategori')->where('id_kategori',$id)->delete();
         return view('master.kategori.kategoriview');

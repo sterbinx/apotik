@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get("/",function(){
- return redirect('master/obat');
+ return redirect('login');
 });
+
+//login
+Route::get('login','AdminController@index');
+Route::post('post-login','AdminController@post_login')->name('post_login');
+Route::get('logout','AdminController@logout');
 //Obat
 Route::get('master/obat', 'Master\ObatController@index');
 Route::get('select/category', 'Master\KategoriController@selectCategory');
@@ -36,11 +41,11 @@ Route::post('master/kategori/update/process', 'Master\KategoriController@update_
 Route::post('master/kategori/create/process', 'Master\KategoriController@store');
 Route::get('master/kategori/search', 'Master\KategoriController@search');
 
-<<<<<<< HEAD
+
 Route::get('master/kategori/delete/{id}','Master\KategoriController@delete');
-=======
+
 Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
->>>>>>> bf1b5d1ff64f431ed4273997d6eb70f9950842c7
+
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');
