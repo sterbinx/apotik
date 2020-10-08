@@ -3,10 +3,10 @@
 @section('content')
 <div class="col-12 stretch-card">
     <div class="card">
-        <form action="{{ url('/master/type/create/process') }}" method="POST">
+        <form action="{{ url('master/obat/create/process') }}" method="GET">
             @csrf
             <div class="card-header">
-                <a href="{{ url('/master/type') }}" class="btn btn-link btn-xs"><i class="fa fa-arrow-left"></i></a>
+                <a href="{{ url('/master/obat') }}" class="btn btn-link btn-xs"><i class="fa fa-arrow-left"></i></a>
                 <span class="card-title">&nbsp;Tambah Data</span>
             </div>
             <div class="card-body">

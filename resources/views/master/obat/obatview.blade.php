@@ -40,6 +40,10 @@
                             <td>{{ $value->tanggal_expired }}</td>
                             <td>{{ $value->stok }}</td>
                             <td>{{ $value->harga_jual }}</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="obat/update/{{$value->kode_obat}}">Edit</a>
+                                <a class="btn btn-danger btn-sm" href="obat/delete/{{$value->kode_obat}}">Hapus</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
