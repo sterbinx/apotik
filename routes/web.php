@@ -25,6 +25,13 @@ Route::post('post-login','AdminController@post_login')->name('post_login');
 Route::get('logout','AdminController@logout');
 //Obat
 Route::get('master/obat', 'Master\ObatController@index');
+Route::get('master/obat/create', 'Master\ObatController@viewCreate');
+Route::get('master/obat/create/process', 'Master\ObatController@store');
+Route::get('master/obat/update/{id}', 'Master\ObatController@viewEdit');
+Route::post('master/obat/update/process', 'Master\ObatController@update');
+Route::get('master/obat/delete/{id}', 'Master\ObatController@delete');
+Route::get('master/obat/search', 'Master\ObatController@search');
+
 Route::get('select/category', 'Master\KategoriController@selectCategory');
 
 //Apoteker
@@ -43,9 +50,13 @@ Route::get('master/kategori/search', 'Master\KategoriController@search');
 
 
 Route::get('master/kategori/delete/{id}','Master\KategoriController@delete');
+<<<<<<< HEAD
 
 Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
 
+=======
+Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
+>>>>>>> 586ab578ae7f45d5fbbab37e33329b03ee0fc64b
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');
