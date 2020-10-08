@@ -95,4 +95,25 @@ class ObatController extends Controller
         return redirect('master/obat');
     }
 
+
+    public function search(Request $request)
+    {
+        $cari = $request->search;
+
+        $obat = DB::table('obat')
+            ->leftJoin('kategori', 'kategori.id_kategori', '=', 'obat.id_kategori')
+            ->where('nama_obat','like',"%".$cari."%")
+            ->orWhere('supplier', 'like', "%$cari%")
+            ->orWhere('satuan', 'like', "%$cari%")
+            ->orWhere('stok', 'like', "%$cari%")
+            ->orWhere('harga_jual', 'like', "%$cari%")
+            ->orWhere('tanggal_expired', 'like', "%$cari%")
+            ->orWhere('nama_kategori', 'like', "%$cari%")
+            ->get();
+
+        return view('master.obat.obatview',['obat' => $obat]);
+
+    }
+
+
 }

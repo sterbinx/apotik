@@ -10,6 +10,13 @@
     		</a>
     	</div>
         <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 offset-9">
+                    <form action="/master/obat/search" method="GET">
+                        <input class="form-control" type="text" name="search" placeholder="Cari Obat.." value="{{ old('search') }}">
+                    </form>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>

@@ -25,6 +25,7 @@ Route::get('master/obat/create/process', 'Master\ObatController@store');
 Route::get('master/obat/update/{id}', 'Master\ObatController@viewEdit');
 Route::post('master/obat/update/process', 'Master\ObatController@update');
 Route::get('master/obat/delete/{id}', 'Master\ObatController@delete');
+Route::get('master/obat/search', 'Master\ObatController@search');
 
 Route::get('select/category', 'Master\KategoriController@selectCategory');
 
