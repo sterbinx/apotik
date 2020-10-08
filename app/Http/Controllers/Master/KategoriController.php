@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Master;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Kategori as kategori;
 
 class KategoriController extends Controller
 {
@@ -44,7 +45,7 @@ class KategoriController extends Controller
 
     }
 
-    public function get_ket(){
+    public function get_ket(Request $request){
         $id = $request->get('id_kategori');     
         $get_edit = DB::table('kategori')
                 ->where('id',$id)
@@ -83,6 +84,27 @@ class KategoriController extends Controller
 >>>>>>> bf1b5d1ff64f431ed4273997d6eb70f9950842c7
     {
         DB::table('kategori')->where('id_kategori',$id)->delete();
-        return view('master.kategori.kategoriview');
+        return redirect('master/kategori');
+    }
+
+    public function selectCategory(Request $request){
+        $data = [];
+
+        if($request->has('q')){
+            $search = $request->q;
+            $data = kategori::select("id_kategori","nama_kategori")
+                ->where('nama_kategori','LIKE',"%$search%")
+                ->get();
+        }else{
+            $data = kategori::select("id_kategori","nama_kategori")
+                ->get();
+        }
+
+        $json = [];
+        foreach($data as $db){
+            $json[] = ['id' => $db->id_kategori, 'text' => $db->nama_kategori];
+        }
+
+        return response()->json($json);
     }
 }

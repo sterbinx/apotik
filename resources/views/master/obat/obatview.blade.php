@@ -10,6 +10,13 @@
     		</a>
     	</div>
         <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 offset-9">
+                    <form action="/master/obat/search" method="GET">
+                        <input class="form-control" type="text" name="search" placeholder="Cari Obat.." value="{{ old('search') }}">
+                    </form>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -40,6 +47,10 @@
                             <td>{{ $value->tanggal_expired }}</td>
                             <td>{{ $value->stok }}</td>
                             <td>{{ $value->harga_jual }}</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="obat/update/{{$value->kode_obat}}">Edit</a>
+                                <a class="btn btn-danger btn-sm" href="obat/delete/{{$value->kode_obat}}">Hapus</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

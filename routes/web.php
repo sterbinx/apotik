@@ -20,6 +20,13 @@ Route::get("/",function(){
 });
 //Obat
 Route::get('master/obat', 'Master\ObatController@index');
+Route::get('master/obat/create', 'Master\ObatController@viewCreate');
+Route::get('master/obat/create/process', 'Master\ObatController@store');
+Route::get('master/obat/update/{id}', 'Master\ObatController@viewEdit');
+Route::post('master/obat/update/process', 'Master\ObatController@update');
+Route::get('master/obat/delete/{id}', 'Master\ObatController@delete');
+Route::get('master/obat/search', 'Master\ObatController@search');
+
 Route::get('select/category', 'Master\KategoriController@selectCategory');
 
 //Apoteker
@@ -36,11 +43,9 @@ Route::post('master/kategori/update/process', 'Master\KategoriController@update_
 Route::post('master/kategori/create/process', 'Master\KategoriController@store');
 Route::get('master/kategori/search', 'Master\KategoriController@search');
 
-<<<<<<< HEAD
+
 Route::get('master/kategori/delete/{id}','Master\KategoriController@delete');
-=======
 Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
->>>>>>> bf1b5d1ff64f431ed4273997d6eb70f9950842c7
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');
