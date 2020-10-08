@@ -33,7 +33,7 @@ Route::get('select/category', 'Master\KategoriController@selectCategory');
 Route::get('master/user', 'Master\UserController@index');
 
 //Kategori
-Route::get('master/kategori', 'Master\KategoriController@index');
+Route::get('master/kategori', 'Master\KategoriController@search');
 Route::get('master/kategori/create', 'Master\KategoriController@viewCreate');
 
 Route::get('master/kategori/get','Master\KategoriController@get_ket');
@@ -43,7 +43,9 @@ Route::post('master/kategori/update/process', 'Master\KategoriController@update_
 Route::post('master/kategori/create/process', 'Master\KategoriController@store');
 Route::get('master/kategori/search', 'Master\KategoriController@search');
 
-Route::get('master/kategori/delete/{id}', 'Master\KategoriController@destroy');
+
+Route::get('master/kategori/delete/{id}','Master\KategoriController@delete');
+Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');

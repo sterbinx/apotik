@@ -9,13 +9,7 @@ use App\Models\Kategori as kategori;
 
 class KategoriController extends Controller
 {
-    public function index(){
-        $data = DB::table('kategori')
-            ->get();
-        return view('master.kategori.kategoriview',[
-            'show' => $data
-        ]);
-    }
+    
 
     public function viewCreate(){
         $data = [];
@@ -41,7 +35,13 @@ class KategoriController extends Controller
         $kategori = DB::table('kategori')
             ->where('nama_kategori','like',"%".$cari."%")->get();
 
-        return view('master.kategori.kategoriview',['show' => $kategori]);
+        $data = DB::table('kategori')
+            ->get();
+
+        return view('master.kategori.kategoriview',[
+            'show' => $kategori,
+            'apa'  => $data
+        ]);
 
     }
 
@@ -77,7 +77,11 @@ class KategoriController extends Controller
         return view('master.kategori.update', $data);
     }
 
+<<<<<<< HEAD
+    public function delete($id)
+=======
      public function destroy($id)
+>>>>>>> bf1b5d1ff64f431ed4273997d6eb70f9950842c7
     {
         DB::table('kategori')->where('id_kategori',$id)->delete();
         return redirect('master/kategori');
