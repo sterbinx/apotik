@@ -22,6 +22,26 @@
                             <th>Opsi</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        @php
+                            $num = 1;
+                        @endphp
+
+                        @foreach($apa as $anjim)
+                            <tr>
+                                <td>{{ $num++ }}</td>
+                                <td>{{ $anjim->Customer}}</td>
+                                <td>{{ $anjim->tanggal_transaksi}}</td>
+                                <td>{{ $anjim->total_harga}}</td>
+                                <td>{{ $anjim->total_bayar}}</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="transaksi/update_transaksi/{{$anjim->id_transaksi}}">Edit</a>
+
+                                    <a class="btn btn-danger btn-sm" href="transaksi/delete/{{$anjim->id_transaksi}}">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
