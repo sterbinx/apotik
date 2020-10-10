@@ -58,5 +58,5 @@ Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');
-Route::get('transaksi/get','TransaksiController@get_ket');
+Route::get('transaksi/get','TransaksiController@get_tran');
 Route::get('transaksi/update_transaksi/{id}','TransaksiController@viewUpdate');
