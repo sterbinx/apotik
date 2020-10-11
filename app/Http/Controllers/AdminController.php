@@ -19,29 +19,30 @@ class AdminController extends Controller
     function post_login(Request $request)
     {
 
-        $condition = false;
-        $user = $this->find_user($request->get('username'));
+    	$user = DB::table('user')->where('username',$request->input('username'))->first();
 
-        if ($user != null) {                
-              if ($user->username == $request->get('username') && $user->password == $request->get('password')) {
-                  $condition = true;
-              }
-        }     
+    	if($user != null){
+    		if($user->username == $request->input('username') && $user->password == md5($request->input('password'))){
 
-        if ($condition) {
-            Session::put('is_login',true);
-            Session::put('id_user',$user->id_user);
-            Session::put('username',$user->username);
-            return [
-                "status" => "success",
-                "redirect_route" => "dashboard" 
-            ];
+                Session::put('is_login',true);
+                Session::put('id_user',$user->id_user);
+                Session::put('username',$user->username);
+                Session::put('password',$user->password);
+
+                //return "success";
+                return [
+                    "status" => "success",
+                    "message" => "Berhasil"
+                ];
+    		}else{
+                return [
+                    "status" => "error",
+                    "message" => $request->input('password')
+                ];
+            }
+    	}else{
+    	    return redirect('login');
         }
-
-        return [
-            "status" => "error",
-            "message" => "User is not valid"
-        ];
     }
 
      public function find_user($username)

@@ -92,7 +92,7 @@
 			}).done(function (data) {
 				Swal.close();
 				if (data.status === 'success') {
-					location.href='master/kategori';
+					location.href='transaksi';
 				}else{
 					Swal.fire(
 						'Error',
