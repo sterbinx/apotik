@@ -33,6 +33,7 @@ Route::get('master/obat/delete/{id}', 'Master\ObatController@delete');
 Route::get('master/obat/search', 'Master\ObatController@search');
 
 Route::get('select/category', 'Master\KategoriController@selectCategory');
+Route::get('select/obat', 'Master\ObatController@selectObat');
 
 //Apoteker
 Route::get('master/user', 'Master\UserController@index');
@@ -48,9 +49,7 @@ Route::post('master/kategori/update/process', 'Master\KategoriController@update_
 Route::post('master/kategori/create/process', 'Master\KategoriController@store');
 Route::get('master/kategori/search', 'Master\KategoriController@search');
 
-
 Route::get('master/kategori/delete/{id}','Master\KategoriController@delete');
-
 
 Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
 
@@ -60,3 +59,5 @@ Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
 Route::get('transaksi', 'TransaksiController@index');
 Route::get('transaksi/get','TransaksiController@get_tran');
 Route::get('transaksi/update_transaksi/{id}','TransaksiController@viewUpdate');
+Route::get('transaksi/create', 'TransaksiController@viewAdd');
+Route::post('transaksi/create/process', 'TransaksiController@store');

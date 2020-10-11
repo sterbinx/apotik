@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title">&nbsp;Data Transaksi</span>
-                <a class="btn btn-primary btn-add pull-right" type="button" title="Tambah Data" style="color: white;">
+                <a class="btn btn-primary btn-add pull-right" type="button" title="Tambah Data" href="transaksi/create" style="color: white;">
                     <i class="fa fa-plus"></i> | Add
                 </a>
             </div>
@@ -15,13 +15,11 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID Detail Transaksi</th>
-                            <th>Kode Obat</th>
                             <th>ID Transaksi</th>
+                            <th>Nama Obat</th>
                             <th>Harga</th>
                             <th>Jumlah Obat</th>
                             <th>Sub Total</th>
-                            <th>Pot</th>
                             <th>Opsi</th>
                         </tr>
                         </thead>
@@ -33,13 +31,11 @@
                         @foreach($detail as $anjim)
                             <tr>
                                 <td>{{ $num++ }}</td>
-                                <td>{{ $anjim->id_detailTransaksi}}</td>
-                                <td>{{ $anjim->kode_obat}}</td>
                                 <td>{{ $anjim->id_transaksi}}</td>
+                                <td>{{ $anjim->nama_obat}}</td>
                                 <td>{{ $anjim->harga}}</td>
                                 <td>{{ $anjim->jumlah_obat}}</td>
                                 <td>{{ $anjim->sub_total}}</td>
-                                <td>{{ $anjim->pot}}</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="transaksi/update_transaksi/{{$anjim->id_detailTransaksi}}">Edit</a>
 
