@@ -9,6 +9,8 @@ use Auth;
 
 class AdminController extends Controller
 {
+    private $table = "user";
+
     function index()
     {
     	return view('login');
@@ -16,31 +18,37 @@ class AdminController extends Controller
 
     function post_login(Request $request)
     {
-    	$user = DB::table('user')->where('username',$request->input('username'))->first();
 
-    	if($user != null){
-    		if($user->username == $request->input('username') && $user->password == md5($request->input('password'))){
+        $condition = false;
+        $user = $this->find_user($request->get('username'));
 
-                Session::put('is_login',true);
-                Session::put('id_user',$user->id_user);
-                Session::put('username',$user->username);
-                Session::put('password',$user->password);
+        if ($user != null) {                
+              if ($user->username == $request->get('username') && $user->password == $request->get('password')) {
+                  $condition = true;
+              }
+        }     
 
-                //return "success";
-                return [
-                    "status" => "success",
-                    "message" => "Berhasil"
-                ];
-    		}else{
-                return [
-                    "status" => "error",
-                    "message" => $request->input('password')
-                ];
-            }
-    	}else{
-    	    return redirect('login');
+        if ($condition) {
+            Session::put('is_login',true);
+            Session::put('id_user',$user->id_user);
+            Session::put('username',$user->username);
+            return [
+                "status" => "success",
+                "redirect_route" => "dashboard" 
+            ];
         }
 
+        return [
+            "status" => "error",
+            "message" => "User is not valid"
+        ];
+    }
+
+     public function find_user($username)
+    {
+        return DB::table($this->table)
+            ->where('username', $username)        
+            ->first();
     }
 
     function logout()
