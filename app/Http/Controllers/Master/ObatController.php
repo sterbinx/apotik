@@ -115,5 +115,32 @@ class ObatController extends Controller
 
     }
 
+    function IDR($value) {
+        return 'Rp. '.number_format($value, 0, ".", ",");
+    }
 
+    public function selectObat(Request $request){
+        $data = [];
+
+        if($request->has('q')){
+            $search = $request->q;
+            $data = DB::table('obat')
+                ->select("kode_obat","nama_obat","harga_jual")
+                ->where('nama_obat','LIKE',"%$search%")
+                ->orderBy('nama_obat')
+                ->get();
+        }else{
+            $data = DB::table('obat')
+                ->select("kode_obat","nama_obat", "harga_jual")
+                ->orderBy('nama_obat')
+                ->get();
+        }
+
+        $json = [];
+        foreach($data as $db){
+            $json[] = ['id' => $db->kode_obat.'-'.$db->harga_jual, 'text' => $db->nama_obat.' - '.$this->IDR($db->harga_jual)];
+        }
+
+        return response()->json($json);
+    }
 }
