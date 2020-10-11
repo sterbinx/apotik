@@ -16,26 +16,31 @@ class AdminController extends Controller
 
     function post_login(Request $request)
     {
-    	$user=DB::table('user')->where('username',$request->input('username'))->first();
-    	$condition = false;
+    	$user = DB::table('user')->where('username',$request->input('username'))->first();
 
     	if($user != null){
-    		if($user->username == $request->input('username') && $user->password == $request->input('password')){
-    			$condition=true;
-    		}
-    	}
+    		if($user->username == $request->input('username') && $user->password == md5($request->input('password'))){
 
-    	if ($condition) {
+                Session::put('is_login',true);
+                Session::put('id_user',$user->id_user);
+                Session::put('username',$user->username);
+                Session::put('password',$user->password);
 
-    		Session::put('is_login',true);
-    		Session::put('id_user',$user->id_user);
-            Session::put('username',$user->username);
-            Session::put('password',$user->password);
-    		
-    		return 'success';
+                //return "success";
+                return [
+                    "status" => "success",
+                    "message" => "Berhasil"
+                ];
+    		}else{
+                return [
+                    "status" => "error",
+                    "message" => $request->input('password')
+                ];
+            }
     	}else{
-    		return "error";
-    	}
+    	    return redirect('login');
+        }
+
     }
 
     function logout()
