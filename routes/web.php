@@ -33,10 +33,6 @@ Route::get('master/obat/delete/{id}', 'Master\ObatController@delete');
 Route::get('master/obat/search', 'Master\ObatController@search');
 
 Route::get('select/category', 'Master\KategoriController@selectCategory');
-Route::get('select/obat', 'Master\ObatController@selectObat');
-
-//Apoteker
-Route::get('master/user', 'Master\UserController@index');
 
 //Kategori
 Route::get('master/kategori', 'Master\KategoriController@search');
@@ -45,19 +41,24 @@ Route::get('master/kategori/create', 'Master\KategoriController@viewCreate');
 Route::get('master/kategori/get','Master\KategoriController@get_ket');
 Route::get('master/kategori/update/{id}','Master\KategoriController@viewUpdate');
 Route::post('master/kategori/update/process', 'Master\KategoriController@update_ket');
-
 Route::post('master/kategori/create/process', 'Master\KategoriController@store');
 Route::get('master/kategori/search', 'Master\KategoriController@search');
 
+
 Route::get('master/kategori/delete/{id}','Master\KategoriController@delete');
 
+
 Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
 
 Route::get('master/kategori/delete/{id}}', 'Master\KategoriController@destroy');
+
+//user
+Route::get('master/user', 'Master\UserController@index');
+Route::get('master/user/create', 'Master\UserController@viewCreate');
+Route::get('master/user/delete/{id}', 'Master\UserController@destroy');
+Route::post('master/user/create/process', 'Master\UserController@add');
 
 //Transaksi
 Route::get('transaksi', 'TransaksiController@index');
 Route::get('transaksi/get','TransaksiController@get_tran');
 Route::get('transaksi/update_transaksi/{id}','TransaksiController@viewUpdate');
-Route::get('transaksi/create', 'TransaksiController@viewAdd');
-Route::post('transaksi/create/process', 'TransaksiController@store');
