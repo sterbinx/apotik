@@ -40,6 +40,12 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ url('logout') }}">
+                        <i class="fas fa-door-open"></i>
+                        <p>Log Out</p>
+                    </a>
+                </li>
                 {{--@if (Auth::user()->roleid == 1)--}}
                 {{--@endif--}}
             </ul>
