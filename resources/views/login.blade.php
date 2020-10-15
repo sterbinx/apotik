@@ -49,7 +49,7 @@
 					<div class="row">
 						<!-- /.col -->
 						<div class="col-8">
-							<a href="#" style="font-size: 12px;">Daftar Akun Siswa?</a>
+
 						</div>
 						<div class="col-4">
 							<button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -91,12 +91,12 @@
 				data:{username : username,password:password}
 			}).done(function (data) {
 				Swal.close();
-				if (data == 'success') {
-					location.href='master/kategori';
+				if (data.status === 'success') {
+					location.href='transaksi';
 				}else{
 					Swal.fire(
 						'Error',
-						'Invalid Username/Password',
+						''+data.message,
 						'error'
 						);
 				}

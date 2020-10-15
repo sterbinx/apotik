@@ -37,6 +37,10 @@
                             <td>{{ $key->no_hp }}</td>
                             <td>{{ $key->level }}</td>
                             <td>
+<<<<<<< HEAD
+=======
+                                {{--<a class="btn btn-primary btn-sm" href="user/update/{{$key->id_user}}">Edit</a>--}}
+>>>>>>> 9fc4cd408ff7175b94f4d3c8976f3fc979a4af78
                                 <a class="btn btn-danger btn-sm" href="user/delete/{{$key->id_user}}">Hapus</a>
                             </td>
                         </tr>
